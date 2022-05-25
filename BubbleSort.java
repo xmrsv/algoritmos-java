@@ -22,6 +22,11 @@ public class JavaApplication {
         System.out.println(""); 
     }
     
+    
+    /**
+     * Esta funcion recibe un array de argumento
+     * y retorna un array ordenado con el algoritmo de ordenamiento Burbuja
+     */
     public static int[] algoritmoBurbuja(int[] array) {
         
         int temporal;
@@ -46,7 +51,7 @@ public class JavaApplication {
                  * 2 3 4 5
                  */ 
                 if ( array[i - 1] >  array[i]) {  
-                    //
+                    
                     temporal = array[i];      
                     array[i] = array[i - 1];
                     array[i - 1] = temporal;
