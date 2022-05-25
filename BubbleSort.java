@@ -1,34 +1,65 @@
-public class BubbleSort {
+package javaapplication;
+
+public class JavaApplication {
 
     public static void main(String[] args) {
-        int[] arr = {5, 1, 3, 7, 9, 0, 8, 4, 2, 6};
         
-        int c;
-
-        System.out.print("Sin ordenar: ");
+        int[] numeritos = {5, 1, 3, 7, 9, 0, 8, 4, 2, 6};
+        int[] numeritosOrdenados;
         
-        for (int i : arr) System.out.print(i);
+        /**
+         * Ordenamos el array y lo almacenamos en otra variable
+         * Podemos reemplazar el mismo array pero lo haremos de forma ordenada
+         */
+        numeritosOrdenados = algoritmoBurbuja(numeritos);
         
-        System.out.println("");
-
-        while (true) {
-            boolean change = false;
-            
-            for (int i = 1; i < arr.length; i++) {   
-                if (arr[i] < arr[i - 1]) {
-                    c = arr[i];
-                    arr[i] = arr[i - 1];
-                    arr[i - 1] = c;
-                    change = true;
-                }
-            }
-            if (change == false) break;
+        // Mostrar elementos del array
+        for(int i: numeritosOrdenados) {
+            System.out.print(i);
         }
         
-        System.out.print("Ordenado: ");
+        // Salto de linea, no es necesario
+        System.out.println(""); 
+    }
+    
+    public static int[] algoritmoBurbuja(int[] array) {
         
-        for (int i : arr) System.out.print(i);
+        int temporal;
+        int arrayTamano;
         
-        System.out.println("");
+        arrayTamano = array.length;
+
+        while (true) {
+            
+            boolean cambio = false;
+
+            for (int i = 1; i < arrayTamano; i++) {
+                
+                /**
+                 * Comparamos el numero de la izquierda con el de la derecha
+                 * si el numero de la izquierda es mayor al de la derecha
+                 * almacenamos el numero de la izquierda en una variable temporal
+                 * y reemplazamos el numero de la izquierda por el numero de la derecha
+                 * y el de la derecha por el de la izquierda
+                 * 3 2 4 5 
+                 * a 
+                 * 2 3 4 5
+                 */ 
+                if ( array[i - 1] >  array[i]) {  
+                    //
+                    temporal = array[i];      
+                    array[i] = array[i - 1];
+                    array[i - 1] = temporal;
+                    cambio = true;
+                }
+            }
+            
+            // Rompemos el bucle while cuando lleguemos al final del array
+            if (cambio == false) {
+                break;
+            }
+        }
+        // Es obvio pero retornamos el arreglo ordenado
+        return array; 
     }
 }
