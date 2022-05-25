@@ -1,6 +1,6 @@
-package javaapplication;
+package javaapplication4;
 
-public class JavaApplication {
+public class JavaApplication4 {
 
     public static void main(String[] args) {
         
@@ -24,8 +24,13 @@ public class JavaApplication {
     
     
     /**
+     * 
      * Esta funcion recibe un array de argumento
      * y retorna un array ordenado con el algoritmo de ordenamiento Burbuja
+     * 
+     * @param array a ordenar
+     * @return array ordenado
+     * 
      */
     public static int[] algoritmoBurbuja(int[] array) {
         
@@ -42,13 +47,11 @@ public class JavaApplication {
                 
                 /**
                  * Comparamos el numero de la izquierda con el de la derecha
-                 * si el numero de la izquierda es mayor al de la derecha
-                 * almacenamos el numero de la izquierda en una variable temporal
-                 * y reemplazamos el numero de la izquierda por el numero de la derecha
-                 * y el de la derecha por el de la izquierda
-                 * 3 2 4 5 
-                 * a 
-                 * 2 3 4 5
+                 * si el numero de la izquierda es mayor al de la derecha:
+                 * 1. Almacenamos el valor de x1 (numero de la izquierda) en una variable t (temporal).
+                 * 2. Reemplazamos el valor de x2 (el numero de la derecha) por x1 (el numero de la izquierda).
+                 * 3. Reemplazamos el valor de x2 por el valor de t.
+                 * 4. Repetimos hasta que la condicion no se cumpla y llegemos al final del array.
                  */ 
                 if ( array[i - 1] >  array[i]) {  
                     
