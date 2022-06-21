@@ -1,6 +1,6 @@
-package javaapplication4;
+package Sorting;
 
-public class JavaApplication4 {
+public class BubbleSort {
 
     public static void main(String[] args) {
         
@@ -14,8 +14,8 @@ public class JavaApplication4 {
         numeritosOrdenados = algoritmoBurbuja(numeritos);
         
         // Mostrar elementos del array
-        for(int i: numeritosOrdenados) {
-            System.out.print(i);
+        for(int numerito: numeritosOrdenados) {
+            System.out.print(numerito);
         }
         
         // Salto de linea, no es necesario
@@ -44,17 +44,16 @@ public class JavaApplication4 {
             boolean cambio = false;
 
             for (int i = 1; i < arrayTamano; i++) {
-                
                 /**
                  * Comparamos el numero de la izquierda con el de la derecha
-                 * si el numero de la izquierda es mayor al de la derecha:
+                 * si el numero de la izquierda es mayor al de la derecha.
+                 *
                  * 1. Almacenamos el valor de x1 (numero de la izquierda) en una variable t (temporal).
                  * 2. Reemplazamos el valor de x2 (el numero de la derecha) por x1 (el numero de la izquierda).
                  * 3. Reemplazamos el valor de x2 por el valor de t.
                  * 4. Repetimos hasta que la condicion no se cumpla y llegemos al final del array.
                  */ 
-                if ( array[i - 1] >  array[i]) {  
-                    
+                if (array[i - 1] > array[i]) {
                     temporal = array[i];      
                     array[i] = array[i - 1];
                     array[i - 1] = temporal;
