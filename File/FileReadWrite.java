@@ -1,4 +1,4 @@
-package javaapplication20;
+package File;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,23 +8,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class JavaApplication20 {
+public class FileReadWrite {
 
     public static void main(String[] args) {
         
         boolean life = true;
         int option;
-	Scanner in = new Scanner(System.in);
+	    Scanner in = new Scanner(System.in);
         
-	System.out.println("1. Crear y (sobre)escribe\n2. Agregar texto\n3. Leer\n0. Salir");
+	    System.out.println("1. Crear y (sobre)escribe\n2. Agregar texto\n3. Leer\n0. Salir");
         option = in.nextInt();
         in.nextLine(); // Previene un errorcito del Scanner.
         
-	while (life) {
+	    while (life) {
             
-	    switch (option) {
-                
-		case 0:
+	        switch (option) {       
+		        case 0:
                     life = false;
                     break;
 
@@ -38,7 +37,6 @@ public class JavaApplication20 {
                 case 2:
                     System.out.print("Ingresa texto: ");
                     String apnd = in.nextLine();
-                    bAppender(apnd);
                     life = false;
                     break;
 
@@ -57,15 +55,19 @@ public class JavaApplication20 {
 
     // Lee el contenido del archivo.
     public static void bReader() {
-        try {
+
+	    try {
             File file = new File("file.txt");
             FileReader fileReader = new FileReader(file); // A stream that connects to the text file
-            BufferedReader bufferedReader = new BufferedReader(fileReader); // Connect the FileReader to the BufferedReader
             String line;
-            while ((line = bufferedReader.readLine()) != null) {
+            BufferedReader bufferedReader = new BufferedReader(fileReader); // Connect the FileReader to the BufferedReader
+            	
+		    while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line); // Display the file's contents on the screen, one line at a time
             }
+
             bufferedReader.close(); // Close the stream
+        
         } catch (IOException e) {
             System.out.println(e);
         }
@@ -73,12 +75,17 @@ public class JavaApplication20 {
 
     // Crea y/o sobreescribe el archivo.
     public static void bWriter(String arg) {
+        
         try {
+        
             File file = new File("file.txt");
             FileWriter fileWriter = new FileWriter(file); // A stream that connects to the text file
+            
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); // Connect the FileWriter to the BufferedWriter
             bufferedWriter.write(arg + "\n");
+            
             bufferedWriter.close(); // Close the stream
+        
         } catch (IOException e) {
             System.out.println(e);
         }
@@ -89,6 +96,8 @@ public class JavaApplication20 {
     // Se supone que esta función deberia agregar texto 
     // sin reemplazar lo que ya contiene el archivo.
     // No lo hace por si acaso.
+   
+    /*
     public static void bAppender(String arg) {
         try {
             File file = new File("file.txt");
@@ -99,6 +108,7 @@ public class JavaApplication20 {
         } catch (IOException e) {
             System.out.println(e);
         }
-    }    
+    }
+    */
 }
 
