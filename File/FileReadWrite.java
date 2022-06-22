@@ -2,30 +2,28 @@ package File;
 
 import java.io.*;
 
-/**
- * @author Miguel A. Gonzales R.
- */
 public class FileReadWrite {
 
     public static void main(String[] args) {
-        bAppend("texto");
-        bReader();
-        System.out.println(countLines());
+        agregarLineas("texto");
+        leerArchivo();
+        System.out.println(contarLineas());
     }
 
-   /**
-     * Lee y Muestra Lineas.
-     * Lee y muestra las lineas de un archivo.
-     * @param arg Texto para escribir
+    /**
+     * Leer Archivo.
+     * Lee y muestra el texto del archivo.
      */
-    public static void bReader() {
+    public static void leerArchivo() {
         try {
             String line;
-            // Lector
+            // Crea la variable del archivo.
             File file = new File("file.txt");
+            // Crea el lector FileReader, lo conecta con File (la variable del archivo).
             FileReader fileReader = new FileReader(file);
+            // Crea el lector BufferedReader, lo conecta con FileReader (lector del archivo).
             BufferedReader bufferedReader = new BufferedReader(fileReader); // Connect the FileReader to the BufferedReader
-            // Recorre cada linea del archivo mientras su contenido no sea nulo
+            // Recorre cada linea del archivo mientras su contenido no sea nulo.
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
             }
@@ -36,16 +34,17 @@ public class FileReadWrite {
     }
 
     /**
-     * Escribe Lineas.
-     * Escribe texto en un archivo, no necesariamente existente.
-     * @param arg Texto para escribir
+     * Escribir Archivo.
+     * Escribe o sobreescribe texto en un archivo.
+     * @param arg Texto a escribir.
      */
-    public static void bWriter(String arg) {
+    public static void escribirArchivo(String arg) {
         try {
             String line;
+            // File writer
             File file = new File("file.txt");
-            FileWriter fileWriter = new FileWriter(file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            FileWriter fileWriter = new FileWriter(file); // A stream that connects to the text file
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); // Connect the FileWriter to the BufferedWriter
             bufferedWriter.write(arg + "\n");
             bufferedWriter.close();
         } catch (IOException e) {
@@ -54,11 +53,11 @@ public class FileReadWrite {
     }
 
     /**
-     * Leer Lineas.
+     * Contar Lineas.
      * Lee cuantas lineas tiene un archivo existente.
      * @return Devuelve la cantidad de lineas del archivo.
      */
-    public static int countLines() {
+    public static int contarLineas() {
         int n = 0;
         try {
             String line;
@@ -70,6 +69,7 @@ public class FileReadWrite {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             try {
+                // Si la linea no esta vacia, suma 1 a la variable entera "n"
                 while ((line = bufferedReader.readLine()) != null) {
                     n++;
                 }
@@ -84,11 +84,11 @@ public class FileReadWrite {
     }
 
     /**
-     * Agrega lineas.
+     * Agregar lineas.
      * Agrega lineas a un archivo existente.
      * @param arg Texto para agregar.
      */
-    public static void bAppend(String arg) {
+    public static void agregarLineas(String arg) {
         try {
             // Inicializa y define el archivo.
             File file = new File("file.txt");
