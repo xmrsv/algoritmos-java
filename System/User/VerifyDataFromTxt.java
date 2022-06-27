@@ -37,5 +37,9 @@ public class VerifyDataFromTxt {
         } catch (Exception e) {
             showModal("Err: " + e);
         }
-    }  
+    }
+    
+    public void showModal(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
 }
