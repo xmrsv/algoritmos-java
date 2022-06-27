@@ -10,7 +10,7 @@ public class TimeJava {
         LocalTime time = LocalTime.now();
         System.out.println("Hora sin formatear " + time);
         
-        StringTokenizer st = new StringTokenizer(String.valueOf(time), ":");
+        StringTokenizer st = new StringTokenizer(String.valueOf(time, ":");
         
         String[] datas = new String[3];
         
