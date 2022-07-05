@@ -1,6 +1,5 @@
 package User;
 
-import javax.swing.JOptionPane;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
