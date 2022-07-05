@@ -10,37 +10,31 @@ public class findCredentials {
         // code ...
     }
     
-    public boolean findCredentials(String fcuser, String fcpass) {
-
-        String username = fcuser;
-        String password = fcpass;
+    public boolean findCredentials(String filename, String username, String password) {
         int found = 0;
 
         try {
-            File file = new File("file.txt");
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+            int usersAmount = 6;
             String line;
-            String[] users = new String[6];
+            String[] users = new String[usersAmount];
+            
+            File file = new File(filename + ".txt");
+            FileReader freader = new FileReader(file);
+            BufferedReader reader = new BufferedReader(freader);
 
             while ((line = bufferedReader.readLine()) != null) {
-                StringTokenizer st = new StringTokenizer(line, ",");
+                StringTokenizer tokenizer = new StringTokenizer(line, ",");
                 
-                for (int i = 0; (st.hasMoreTokens()); i++) 
-                    users[i] = st.nextToken();
-                
-                if (users[1].equals(username) && users[5].equals(password)) 
+                for (int i = 0; (st.hasMoreTokens()); i++) {
+                    users[i] = tokenizer.nextToken();
+                }
+                if (users[1].equals(username) && users[5].equals(password)) {               
                     found++;
-                
+                }
             }
         } catch (Exception e) {
-            showModal("Exception: " + e);
+            // Exception
         }
-        return found > 1;
-    }
-    
-    public void showModal(String message) {
-        JOptionPane.showMessageDialog(this, message);
+        return found > 0;
     }
 }
